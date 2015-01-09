@@ -1,0 +1,106 @@
+extends ../layout
+
+block content
+  .page-header.text-center
+    h1
+      span.fa.fa-anchor
+      | &nbsp; #{userProfile.name}
+    p
+      if userProfile.avatar
+        img(src="#{userProfile.avatar}")
+    a.btn.btn-default.btn-sm(href='/', target="_self") Home
+    | &nbsp;
+    a.btn.btn-default.btn-sm(href='/logout', target="_self") Logout
+  .row
+    // LOCAL INFORMATION
+    .col-sm-6
+      .well
+        h3
+          span.fa.fa-user
+          | Local
+
+        if user.local.email
+          p
+            strong id :
+            = user._id
+            br
+            strong email :
+            = user.local.email
+            br
+            strong password :
+            = user.local.password
+          a.btn.btn-default(href='/unlink/local', target="_self") Unlink
+        else
+          a.btn.btn-default(href='/connect/local', target="_self") Connect Local
+
+    // FACEBOOK INFORMATION
+    .col-sm-6
+      .well
+        h3.text-primary
+          span.fa.fa-facebook
+          | Facebook
+
+        if user.facebook.token
+          p
+            strong id :
+            = user.facebook.id
+
+            br
+            strong email :
+            = user.facebook.email
+            br
+            strong name :
+            = user.facebook.name
+            br
+          a.btn.btn-primary(href='/unlink/facebook', target="_self") Unlink
+        else
+          a.btn.btn-primary(href='/connect/facebook', target="_self") Connect Facebook
+
+  .row
+    // TWITTER INFORMATION
+    .col-sm-6
+      .well
+        h3.text-info
+          span.fa.fa-twitter
+          | Twitter
+
+        if user.twitter.token
+          p
+            strong id :
+            = user.twitter.id
+            br
+            strong token :
+            = user.twitter.token
+            br
+            strong display name :
+            = user.twitter.displayName
+            br
+            strong username :
+            = user.twitter.username
+          a.btn.btn-info(href='/unlink/twitter', target="_self") Unlink
+        else
+          a.btn.btn-info(href='/connect/twitter', target="_self") Connect Twitter
+
+    // GOOGLE INFORMATION
+    .col-sm-6
+      .well
+        h3.text-danger
+          span.fa.fa-google-plus
+          | Google+
+
+        if user.google.token
+          p
+            strong id
+            | : <%= user.google.id %>
+            br
+            strong token
+            | : <%= user.google.token %>
+            br
+            strong email
+            | : <%= user.google.email %>
+            br
+            strong name
+            | : <%= user.google.name %>
+          a.btn.btn-danger(href='/unlink/google', target="_self") Unlink
+        else
+          a.btn.btn-danger(href='/connect/google', target="_self") Connect Google

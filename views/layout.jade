@@ -1,0 +1,44 @@
+doctype html
+html(ng-app='Cebutindahan')
+  head
+    title= title
+    base(href="/")
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+
+
+
+
+
+  body
+    .container
+      ng-view
+      block content
+    script(src='/socket.io/socket.io.js')
+    //- script(src='http://code.jquery.com/jquery-1.11.1.js')
+    script(src='/javascripts/test.js')
+    script(src='/javascripts/jst-app.js')
+    script(src='/javascripts/dependencies/angular/angular.js')
+
+    script(src='/javascripts/dependencies/angular/angular-resource.js')
+    script(src='/javascripts/dependencies/angular/angular-route.js')
+    script(src='/javascripts/dependencies/lodash/lodash.js')
+
+    //- inject:js
+    script(src="/javascripts/app/app.js")
+    script(src="/javascripts/app/controllers/home.js")
+    script(src="/javascripts/app/controllers/posts.js")
+    script(src="/javascripts/app/services/socket.js")
+    script(src="/javascripts/app/models/user.js")
+    //- endinject
+
+
+
+
+
+
+
+
+

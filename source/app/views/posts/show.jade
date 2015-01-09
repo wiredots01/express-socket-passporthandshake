@@ -1,0 +1,12 @@
+p this is the show post asdf
+dl
+  dt Viewers
+  dd(ng-repeat="roster in rosters")
+    | - {{roster.name}}
+ul
+  li(ng-repeat="comment in comments")
+    img(ng-src="{{comment.user.avatar}}")
+    | {{comment.content}}
+form(action='#')
+  input#m(autocomplete='off', ng-model='message.content')
+  button(type="button", ng-click="sendMessage()") Send
